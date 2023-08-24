@@ -1,0 +1,37 @@
+<h1 style = "text-align: center;">To-do List</h1>
+
+<div class="container text-center">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-6">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="New Task" aria-describedby="button-addon2" [(ngModel)]="newTask">
+            <input type="text" class="form-control" placeholder="due date" aria-describedby="button-addon2" [(ngModel)]="due">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="saveTask()">Add</button>
+          </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Task Id</th>
+                <th scope="col">Task Description</th>
+                <th scope="col">Due Date</th>
+                <th scope="col">Check</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let todo of todoList; let i = index;">
+                <th scope="row">{{i+1}}</th>
+                <td>{{todo.Task}}</td>
+                <td>{{todo.dueDate}}</td>
+                <td>
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                </td>
+                <td style="color: red; font-weight: bold;"(click)="remove(i)">X</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      
+    </div>
+  </div>
+
